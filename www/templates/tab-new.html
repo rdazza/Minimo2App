@@ -1,0 +1,56 @@
+<ion-view view-title="Añadir nuevo elemento">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        Añadir asignatura
+      </div>
+      <div class="item item-text-wrap">
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Name</span>
+            <input type="text" placeholder="Name" ng-model="NewSubject.name">
+          </label>
+
+
+
+          <button class="button button-block button-balanced" ng-click="CreateSubject()" ng-disabled="!NewSubject.name">
+            Crea asignatura
+          </button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-divider">
+        Añade estudiante
+      </div>
+      <div class="item item-text-wrap">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Nombre</span>
+          <input type="text" placeholder="Nombre"  ng-model="NewStudent.name">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Direccion</span>
+          <input type="text"  placeholder="Direccion" ng-model="NewStudent.address">
+        </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Estudios</span>
+          <input type="text"  placeholder="Estudios" ng-model="NewStudent.studies">
+        </label>
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label">telf casa</span>
+          <input type="tel"  placeholder="telf casa" ng-model="NewStudent.number1">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">telf movil/trabajo</span>
+          <input type="tel" placeholder="telf movil/trabajo" ng-model="NewStudent.number2">
+        </label>
+        <button class="button button-block button-balanced" ng-click="CreateStudent()" ng-disabled="!NewStudent.name || !NewStudent.address || !NewStudent.studies || !NewStudent.number1 || !NewStudent.number2">
+          Crear estudiante
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

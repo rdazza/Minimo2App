@@ -1,0 +1,38 @@
+<ion-view view-title="Asignaturas" hide-nav-bar="false">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <div class="list">
+    <div class="item bar bar-subheader item-input-inset">
+
+
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Busca asignatura" ng-model="search.input">
+      </label>
+
+    </div>
+  </div>
+  <ion-content style="padding-top: 42px">
+    <div class="padding text-center">
+      <button class="button button-small button-positive tagged" ng-click="Order()">
+        <i class="icon ion-at placeholder-icon" style="color: white"></i>Ordena alfabeticamente &nbsp;
+      </button>
+
+
+    </div>
+    <ion-list>
+      <ion-item class="item-avatar item-icon-right" ng-repeat="subject in subjects | orderBy:OrderDo | filter:{name: search.input}" type="item-text-wrap" href="#/tab/subjects/{{subject._id}}">
+        <img ng-src="img/subject.png">
+        <h2>{{subject.name}}</h2>
+        <p>Estudiantes Matriculados: {{subject.students.length}}</p>
+        <p>{{subject.when}}</p>
+        <i class="icon ion-chevron-left icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="DeleteSubject(subject._id)">
+          Borrar
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,52 @@
+<ion-view view-title="Estudiantes ">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <div class="list">
+    <div class="item bar bar-subheader item-input-inset">
+      <label class="item-input-wrapper">
+
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Busca estudiante" ng-model="search.input">
+
+
+      </label>
+
+
+      <label class="item-input-wrapper">
+
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Busca por estudios" ng-model="search.input">
+
+
+      </label>
+
+
+    </div>
+  </div>
+
+
+
+
+
+  <ion-content style="padding-top: 42px">
+    <div class="padding text-center">
+      <button class="button button-small button-positive tagged" ng-click="Order()">
+        <i class="icon ion-at placeholder-icon" style="color: white"></i>Ordena alfabeticamente &nbsp;
+      </button>
+    </div>
+      <ion-list ng-init="load()">
+        <ion-item class="item-avatar item-icon-right" ng-repeat="student in students | orderBy: OrderDo | filter:{name: search.input}" type="item-text-wrap" href="#/tab/students/{{student._id}}">
+          <img ng-src="img/student.ico">
+          <h2>{{student.name}}</h2>
+          <p>{{student.address}}</p>
+          <p>Asignaturas Matriculadas: {{student.subjects.length}}</p>
+          <i class="icon ion-chevron-left icon-accessory"></i>
+
+          <ion-option-button class="button-assertive" ng-click="DeleteStudent(student._id)">
+            Delete
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>
